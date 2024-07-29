@@ -10,7 +10,7 @@ const weatherIcon = document.querySelector(".logo img");
 async function getCityCoordinates() {
     const cityName = searchBox.value.trim();
     if (!cityName) return;
-    const geocodingAPIURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
+    const geocodingAPIURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
 
     try {
         spinner.style.display = 'block';
