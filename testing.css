@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    background-image: linear-gradient(to bottom, #C2D0FF, #6B8DFF);
+    font-family: "Roboto Mono", monospace;
+    background-image: url("ree1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,20 +18,36 @@ header {
     font-size: x-large;
 }
 
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .logo {
+    animation: pulse 2s infinite;
+  }
+
 .bar {
     display: flex;
     justify-content: space-around;
     padding: 20px 20px;
     align-items: center;
+
 }
 
-.container {    
+.container {
     display: grid;
     grid-template-columns: 0.5fr 0.5fr;
     grid-template-rows: 0fr 0.5fr;
     gap: 50px;
     margin: 0 auto;
-    background-color: #ff
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -59,16 +75,23 @@ header {
     width: 60px;
     height: 60px;
     cursor: pointer;
+    background-image: linear-gradient(to bottom, #C2D0FF, #6B8DFF);
+    transition:
 }
 
 .search button img {
     width: 16px;
 }
+
+.search button:hover {
+    background: linear-gradient(to right, #0F3443, #34E89E);
+}
+
 .currentWeather {
     display:flex;
     flex-direction: column;
     gap: 50
-    padding: 20px;
+    padding 20px;
 }
 
 .weather {
@@ -89,7 +112,7 @@ header {
 }
 
 .conditions {
-    background: linear-gradient(to right, #FFD3A5, #FD6585)
+    background-color:(black);
     padding: 20px;
     border-radius: 5px;
     display: inline-grid;
@@ -105,10 +128,11 @@ header {
     grid-column: 1;
     grid-row: 1;
     padding-left: 26px;
+    animation: vibrate-low 2s infinite;
 }
 
 .wind-col {
-    border: black solid
+    border: black solid 1p
     grid-column: 2;
     grid-row: 1;
 }
@@ -144,7 +168,7 @@ header {
 
 .templist {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-between;
     gap: 10px;
     width: 100%;
@@ -173,7 +197,7 @@ header {
 }
 
 .spinner {
-    display: none; 
+    display: none;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -194,4 +218,32 @@ header {
 .Uforecast .templist .next .iconWrapper img {
     width: 75%;
     height: 75%;
+}
+
+@media screen and (max-width:800px) {
+    .bar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap:20px;
+    }
+    .search{
+        width: 100%;
+    }
+    .search input{
+        width: calc(100% -70px);
+    }
+    .search button{
+        width: 50px;
+        height: 50px;
+    }
+    .currentWeather{
+        gap:20px;
+    }
+    .locationTemp p:first-child{
+        font-size: 3rem;
+    }
 }
